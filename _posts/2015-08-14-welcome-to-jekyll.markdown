@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Welcome to Jekyll!"
+title:  "autolayout in uitableviewcell"
 date:   2015-08-14 16:21:13
 categories: jekyll update
 ---
