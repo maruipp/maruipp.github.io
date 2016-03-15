@@ -57,34 +57,22 @@
 
 
 
-<meta name="description" content="分为iOS和安卓两部分
-公共部分
-下载unity-admob插件，并引入unity工程。下载地址
-下载unity-admob示例代码，将samples/HelloWorld/Assets路径下文件引入工程。下载地址
-更换GoogleMobileAdsDemoScript内的广告id。
-
-iOSEnable Modules(C and Objectvie-C)设置为YES使用“工程名.workspa">
+<meta name="description" content="本文记录了iOS端实现js注入的基本方法。
+webview内进行跳转后之前注入的js失效的问题可以在下面函数中重新进行js注入：1234- (void)webViewDidStartLoad:(UIWebView *)webView&amp;#123;    [webView setupJSContext];&amp;#125;
+示例代码：123456789101112131415@protocol MyPoin">
 <meta property="og:type" content="article">
-<meta property="og:title" content="unity5整合admob实践">
-<meta property="og:url" content="http://yoursite.com/2016/03/08/unity5整合admob实践/index.html">
+<meta property="og:title" content="JSContext实现js注入">
+<meta property="og:url" content="http://yoursite.com/2016/03/15/JSContext实现js注入/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="分为iOS和安卓两部分
-公共部分
-下载unity-admob插件，并引入unity工程。下载地址
-下载unity-admob示例代码，将samples/HelloWorld/Assets路径下文件引入工程。下载地址
-更换GoogleMobileAdsDemoScript内的广告id。
-
-iOSEnable Modules(C and Objectvie-C)设置为YES使用“工程名.workspa">
-<meta property="og:updated_time" content="2016-03-09T02:09:14.000Z">
+<meta property="og:description" content="本文记录了iOS端实现js注入的基本方法。
+webview内进行跳转后之前注入的js失效的问题可以在下面函数中重新进行js注入：1234- (void)webViewDidStartLoad:(UIWebView *)webView&amp;#123;    [webView setupJSContext];&amp;#125;
+示例代码：123456789101112131415@protocol MyPoin">
+<meta property="og:updated_time" content="2016-03-15T04:52:10.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="unity5整合admob实践">
-<meta name="twitter:description" content="分为iOS和安卓两部分
-公共部分
-下载unity-admob插件，并引入unity工程。下载地址
-下载unity-admob示例代码，将samples/HelloWorld/Assets路径下文件引入工程。下载地址
-更换GoogleMobileAdsDemoScript内的广告id。
-
-iOSEnable Modules(C and Objectvie-C)设置为YES使用“工程名.workspa">
+<meta name="twitter:title" content="JSContext实现js注入">
+<meta name="twitter:description" content="本文记录了iOS端实现js注入的基本方法。
+webview内进行跳转后之前注入的js失效的问题可以在下面函数中重新进行js注入：1234- (void)webViewDidStartLoad:(UIWebView *)webView&amp;#123;    [webView setupJSContext];&amp;#125;
+示例代码：123456789101112131415@protocol MyPoin">
 
 
 
@@ -102,7 +90,7 @@ iOSEnable Modules(C and Objectvie-C)设置为YES使用“工程名.workspa">
   };
 </script>
 
-  <title> unity5整合admob实践 | Hexo </title>
+  <title> JSContext实现js注入 | Hexo </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -230,7 +218,7 @@ iOSEnable Modules(C and Objectvie-C)设置为YES使用“工程名.workspa">
             
             
               
-                unity5整合admob实践
+                JSContext实现js注入
               
             
           </h1>
@@ -242,8 +230,8 @@ iOSEnable Modules(C and Objectvie-C)设置为YES使用“工程名.workspa">
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-03-08T17:42:23+08:00" content="2016-03-08">
-              2016-03-08
+            <time itemprop="dateCreated" datetime="2016-03-15T11:49:21+08:00" content="2016-03-15">
+              2016-03-15
             </time>
           </span>
 
@@ -253,8 +241,8 @@ iOSEnable Modules(C and Objectvie-C)设置为YES使用“工程名.workspa">
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/03/08/unity5整合admob实践/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/03/08/unity5整合admob实践/" itemprop="commentsCount"></span>
+                <a href="/2016/03/15/JSContext实现js注入/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/03/15/JSContext实现js注入/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -276,15 +264,10 @@ iOSEnable Modules(C and Objectvie-C)设置为YES使用“工程名.workspa">
       
 
       
-        <p>分为iOS和安卓两部分</p>
-<h2 id="公共部分"><a href="#公共部分" class="headerlink" title="公共部分"></a>公共部分</h2><ol>
-<li>下载unity-admob插件，并引入unity工程。<a href="https://github.com/googleads/googleads-mobile-unity/releases" target="_blank" rel="external">下载地址</a></li>
-<li>下载unity-admob示例代码，将samples/HelloWorld/Assets路径下文件引入工程。<a href="https://github.com/googleads/googleads-mobile-unity" target="_blank" rel="external">下载地址</a></li>
-<li>更换GoogleMobileAdsDemoScript内的广告id。</li>
-</ol>
-<h2 id="iOS"><a href="#iOS" class="headerlink" title="iOS"></a>iOS</h2><p>Enable Modules(C and Objectvie-C)设置为YES<br>使用“工程名.workspace”打开工程，如有需要则pod install，也可在<a href="https://developers.google.com/admob/ios/download" target="_blank" rel="external">谷歌</a>直接下载admob依赖库，并引入工程。</p>
-<h2 id="安卓"><a href="#安卓" class="headerlink" title="安卓"></a>安卓</h2><p>Done</p>
-
+        <p>本文记录了iOS端实现js注入的基本方法。</p>
+<h2 id="webview内进行跳转后之前注入的js失效的问题"><a href="#webview内进行跳转后之前注入的js失效的问题" class="headerlink" title="webview内进行跳转后之前注入的js失效的问题"></a>webview内进行跳转后之前注入的js失效的问题</h2><p>可以在下面函数中重新进行js注入：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">- (void)webViewDidStartLoad:(UIWebView *)webView</span><br><span class="line">&#123;</span><br><span class="line">    [webView setupJSContext];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="示例代码："><a href="#示例代码：" class="headerlink" title="示例代码："></a>示例代码：</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">@protocol MyPointExports &lt;JSExport&gt;</span><br><span class="line">@property double x;</span><br><span class="line">@property double y;</span><br><span class="line">- (NSString *)description;</span><br><span class="line">- (instancetype)initWithX:(double)x y:(double)y;</span><br><span class="line">+ (MyPoint *)makePointWithX:(double)x y:(double)y;</span><br><span class="line">@end</span><br><span class="line"></span><br><span class="line">@interface MyPoint : NSObject &lt;MyPointExports&gt;</span><br><span class="line">- (void)myPrivateMethod;  // Not in the MyPointExports protocol, so not visible to JavaScript code.</span><br><span class="line">@end</span><br><span class="line"></span><br><span class="line">@implementation MyPoint</span><br><span class="line">// ...</span><br><span class="line">@end</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">- (void)setupJSContext</span><br><span class="line">&#123;</span><br><span class="line">    JSContext *context = [webView valueForKeyPath:@&quot;documentView.webView.mainFrame.javaScriptContext&quot;];</span><br><span class="line">    MyPoint *mobile=[[MyPoint alloc] init];</span><br><span class="line">    context[@&quot;mobile&quot;]=mobile;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
 
@@ -301,17 +284,13 @@ iOSEnable Modules(C and Objectvie-C)设置为YES使用“工程名.workspa">
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/03/07/Day/" rel="next" title="运行时调整static的uitableview的cell的高度（待填坑）">
-                <i class="fa fa-chevron-left"></i> 运行时调整static的uitableview的cell的高度（待填坑）
+              <a href="/2016/03/10/集成Reveal：不修改您的Xcode工程并加载Reveal/" rel="next" title="集成Reveal：不修改您的Xcode工程并加载Reveal">
+                <i class="fa fa-chevron-left"></i> 集成Reveal：不修改您的Xcode工程并加载Reveal
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/03/09/常用命令-mkdir的使用/" rel="prev" title="常用命令:mkdir的使用">
-                常用命令:mkdir的使用 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -337,8 +316,8 @@ iOSEnable Modules(C and Objectvie-C)设置为YES使用“工程名.workspa">
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/03/08/unity5整合admob实践/"
-           data-title="unity5整合admob实践" data-url="http://yoursite.com/2016/03/08/unity5整合admob实践/">
+      <div class="ds-thread" data-thread-key="2016/03/15/JSContext实现js注入/"
+           data-title="JSContext实现js注入" data-url="http://yoursite.com/2016/03/15/JSContext实现js注入/">
       </div>
     
   </div>
@@ -419,7 +398,7 @@ iOSEnable Modules(C and Objectvie-C)设置为YES使用“工程名.workspa">
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#公共部分"><span class="nav-number">1.</span> <span class="nav-text">公共部分</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#iOS"><span class="nav-number">2.</span> <span class="nav-text">iOS</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安卓"><span class="nav-number">3.</span> <span class="nav-text">安卓</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#webview内进行跳转后之前注入的js失效的问题"><span class="nav-number">1.</span> <span class="nav-text">webview内进行跳转后之前注入的js失效的问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#示例代码："><span class="nav-number">2.</span> <span class="nav-text">示例代码：</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">

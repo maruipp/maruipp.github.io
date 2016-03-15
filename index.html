@@ -214,6 +214,104 @@
             
               
                 
+                <a class="post-title-link" href="/2016/03/15/JSContext实现js注入/" itemprop="url">
+                  JSContext实现js注入
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-03-15T11:49:21+08:00" content="2016-03-15">
+              2016-03-15
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/03/15/JSContext实现js注入/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/03/15/JSContext实现js注入/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>本文记录了iOS端实现js注入的基本方法。</p>
+<h2 id="webview内进行跳转后之前注入的js失效的问题"><a href="#webview内进行跳转后之前注入的js失效的问题" class="headerlink" title="webview内进行跳转后之前注入的js失效的问题"></a>webview内进行跳转后之前注入的js失效的问题</h2><p>可以在下面函数中重新进行js注入：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">- (void)webViewDidStartLoad:(UIWebView *)webView</span><br><span class="line">&#123;</span><br><span class="line">    [webView setupJSContext];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="示例代码："><a href="#示例代码：" class="headerlink" title="示例代码："></a>示例代码：</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">@protocol MyPointExports &lt;JSExport&gt;</span><br><span class="line">@property double x;</span><br><span class="line">@property double y;</span><br><span class="line">- (NSString *)description;</span><br><span class="line">- (instancetype)initWithX:(double)x y:(double)y;</span><br><span class="line">+ (MyPoint *)makePointWithX:(double)x y:(double)y;</span><br><span class="line">@end</span><br><span class="line"></span><br><span class="line">@interface MyPoint : NSObject &lt;MyPointExports&gt;</span><br><span class="line">- (void)myPrivateMethod;  // Not in the MyPointExports protocol, so not visible to JavaScript code.</span><br><span class="line">@end</span><br><span class="line"></span><br><span class="line">@implementation MyPoint</span><br><span class="line">// ...</span><br><span class="line">@end</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">- (void)setupJSContext</span><br><span class="line">&#123;</span><br><span class="line">    JSContext *context = [webView valueForKeyPath:@&quot;documentView.webView.mainFrame.javaScriptContext&quot;];</span><br><span class="line">    MyPoint *mobile=[[MyPoint alloc] init];</span><br><span class="line">    context[@&quot;mobile&quot;]=mobile;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/03/10/集成Reveal：不修改您的Xcode工程并加载Reveal/" itemprop="url">
                   集成Reveal：不修改您的Xcode工程并加载Reveal
                 </a>
@@ -859,7 +957,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">6</span>
+              <span class="site-state-item-count">7</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
