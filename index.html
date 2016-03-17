@@ -224,6 +224,128 @@
             
               
                 
+                <a class="post-title-link" href="/2016/03/17/安卓json解析库Gson的基本使用/" itemprop="url">
+                  安卓json解析库Gson的基本使用
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-03-17T10:43:28+08:00" content="2016-03-17">
+              2016-03-17
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/android/" itemprop="url" rel="index">
+                    <span itemprop="name">android</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/03/17/安卓json解析库Gson的基本使用/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/03/17/安卓json解析库Gson的基本使用/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="安卓json解析库Gson的基本使用"><a href="#安卓json解析库Gson的基本使用" class="headerlink" title="安卓json解析库Gson的基本使用"></a>安卓json解析库Gson的基本使用</h1><p>安卓初学者，在使用gson库时碰到一些问题，特记录在此以备忘</p>
+<h2 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法"></a>基本用法</h2><p>首先先讲一个比较简单点的例子(最简单的我就不讲啦，网上很多)，帮助新手理解Gson的使用方法：<br>                 比如我们要解析一个下面这种的Json：<br>                 String json = {“a”:”100”,”b”:[{“b1”:”b_value1”,”b2”:”b_value2”},{“b1”:”b_value1”,”b2”:”b_value2”}]，”c”:{“c1”:”c_value1”,”c2”:”c_value2”}}<br>                首先我们需要定义一个序列化的Bean，这里采用内部类的形式，看起来会比较清晰一些：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">  public class JsonBean &#123;</span><br><span class="line">           public String a;</span><br><span class="line">           public List&lt;B&gt; b;</span><br><span class="line">           public C c;</span><br><span class="line"></span><br><span class="line">           public static class B &#123;</span><br><span class="line">                    public String b1;</span><br><span class="line">                    public String b2;</span><br><span class="line">          &#125;</span><br><span class="line">    </span><br><span class="line">          public static class C &#123;</span><br><span class="line">                   public String c1;</span><br><span class="line">                   public String c2;</span><br><span class="line">         &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>很多时候大家都是不知道这个Bean是该怎么定义，这里面需要注意几点：<br>             1、内部嵌套的类必须是static的，要不然解析会出错；<br>             2、类里面的属性名必须跟Json字段里面的Key是一模一样的；<br>             3、内部嵌套的用[]括起来的部分是一个List，所以定义为 public List b，而只用{}嵌套的就定义为 public C c，<br>                  具体的大家对照Json字符串看看就明白了。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Gson gson = new Gson();</span><br><span class="line">java.lang.reflect.Type type = new TypeToken&lt;JsonBean&gt;() &#123;&#125;.getType();</span><br><span class="line">JsonBean jsonBean = gson.fromJson(json, type);</span><br></pre></td></tr></table></figure></p>
+<p>然后想拿数据就很简单啦，直接在jsonBean里面取就可以了！<br>如果需要解析的Json嵌套了很多层，同样可以可以定义一个嵌套很多层内部类的Bean，需要细心的对照Json字段来定义哦。</p>
+<p>文章来源：<a href="http://www.cnblogs.com/jxgxy/p/3677256.html" target="_blank" rel="external">http://www.cnblogs.com/jxgxy/p/3677256.html</a></p>
+<h2 id="字段与java关键字重名时候的处理"><a href="#字段与java关键字重名时候的处理" class="headerlink" title="字段与java关键字重名时候的处理"></a>字段与java关键字重名时候的处理</h2><p>只要对该变量添加Field Naming Support就可以了。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">public class BoxSubject &#123;</span><br><span class="line">    @SerializedName(&quot;new&quot;)</span><br><span class="line">    private boolean new;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>参考文章：<a href="http://www.jianshu.com/p/b23792d4ba31" target="_blank" rel="external">http://www.jianshu.com/p/b23792d4ba31</a></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/03/15/JSContext实现js注入/" itemprop="url">
                   JSContext实现js注入
                 </a>
@@ -684,6 +806,25 @@
           </span>
 
           
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/unity/" itemprop="url" rel="index">
+                    <span itemprop="name">unity</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
 
           
             
@@ -986,7 +1127,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">7</span>
+              <span class="site-state-item-count">8</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -994,7 +1135,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-count">3</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -1003,7 +1144,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-count">3</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
