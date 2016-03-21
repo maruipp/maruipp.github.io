@@ -50,7 +50,7 @@
 
 
 
-  <link rel="shortcut icon" type="image/x-icon" href="/uploads/me.jpg?v=0.5.0" />
+  <link rel="shortcut icon" type="image/x-icon" href="/uploads/me.png?v=0.5.0" />
 
 
 
@@ -58,18 +58,18 @@
 
 
 <meta name="description" content="关于mantle的使用mantle使用注意事项
-##数组transformer123+ (NSValueTransformer *)available_couponsJSONTransformer &amp;#123;    return [NSValueTransformer mtl_JSONArrayTransformerWithModelClass:MCIpadVerifyCoupon.class]">
+数组transformer123+ (NSValueTransformer *)available_couponsJSONTransformer &amp;#123;    return [NSValueTransformer mtl_JSONArrayTransformerWithModelClass:MCIpadVerifyCoupon.class];&amp;">
 <meta property="og:type" content="article">
 <meta property="og:title" content="mantle的使用备忘">
 <meta property="og:url" content="http://yoursite.com/2016/03/21/mantle的使用/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="关于mantle的使用mantle使用注意事项
-##数组transformer123+ (NSValueTransformer *)available_couponsJSONTransformer &amp;#123;    return [NSValueTransformer mtl_JSONArrayTransformerWithModelClass:MCIpadVerifyCoupon.class]">
-<meta property="og:updated_time" content="2016-03-21T09:51:57.000Z">
+数组transformer123+ (NSValueTransformer *)available_couponsJSONTransformer &amp;#123;    return [NSValueTransformer mtl_JSONArrayTransformerWithModelClass:MCIpadVerifyCoupon.class];&amp;">
+<meta property="og:updated_time" content="2016-03-21T09:53:47.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="mantle的使用备忘">
 <meta name="twitter:description" content="关于mantle的使用mantle使用注意事项
-##数组transformer123+ (NSValueTransformer *)available_couponsJSONTransformer &amp;#123;    return [NSValueTransformer mtl_JSONArrayTransformerWithModelClass:MCIpadVerifyCoupon.class]">
+数组transformer123+ (NSValueTransformer *)available_couponsJSONTransformer &amp;#123;    return [NSValueTransformer mtl_JSONArrayTransformerWithModelClass:MCIpadVerifyCoupon.class];&amp;">
 
 
 
@@ -291,10 +291,10 @@
 
       
         <h1 id="关于mantle的使用"><a href="#关于mantle的使用" class="headerlink" title="关于mantle的使用"></a>关于mantle的使用</h1><p>mantle使用注意事项</p>
-<p>##数组transformer<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">+ (NSValueTransformer *)available_couponsJSONTransformer &#123;</span><br><span class="line">    return [NSValueTransformer mtl_JSONArrayTransformerWithModelClass:MCIpadVerifyCoupon.class];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>##字典transformer<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">+ (NSValueTransformer *)related_couponJSONTransformer &#123;</span><br><span class="line">    return [NSValueTransformer mtl_JSONDictionaryTransformerWithModelClass:MCIpadVerifyCoupon.class];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>##对象成员转换<br>必须继承MTLModel，声明MTLJsonAdapter，实现MTLJsonAdapter协议</p>
-<p>##nsnumber转nsstring<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">+ (NSValueTransformer *)course_typeJSONTransformer &#123;</span><br><span class="line">    return [MTLValueTransformer reversibleTransformerWithForwardBlock:^(NSNumber *courseType) &#123;</span><br><span class="line">        return [NSString stringWithFormat:@&quot;%@&quot;,courseType];</span><br><span class="line">    &#125; reverseBlock:^(NSString *courseType) &#123;</span><br><span class="line">        return [NSNumber numberWithLong:courseType.longLongValue];</span><br><span class="line">    &#125;];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="数组transformer"><a href="#数组transformer" class="headerlink" title="数组transformer"></a>数组transformer</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">+ (NSValueTransformer *)available_couponsJSONTransformer &#123;</span><br><span class="line">    return [NSValueTransformer mtl_JSONArrayTransformerWithModelClass:MCIpadVerifyCoupon.class];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="字典transformer"><a href="#字典transformer" class="headerlink" title="字典transformer"></a>字典transformer</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">+ (NSValueTransformer *)related_couponJSONTransformer &#123;</span><br><span class="line">    return [NSValueTransformer mtl_JSONDictionaryTransformerWithModelClass:MCIpadVerifyCoupon.class];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="对象成员转换"><a href="#对象成员转换" class="headerlink" title="对象成员转换"></a>对象成员转换</h2><p>必须继承MTLModel，声明MTLJsonAdapter，实现MTLJsonAdapter协议</p>
+<h2 id="nsnumber转nsstring"><a href="#nsnumber转nsstring" class="headerlink" title="nsnumber转nsstring"></a>nsnumber转nsstring</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">+ (NSValueTransformer *)course_typeJSONTransformer &#123;</span><br><span class="line">    return [MTLValueTransformer reversibleTransformerWithForwardBlock:^(NSNumber *courseType) &#123;</span><br><span class="line">        return [NSString stringWithFormat:@&quot;%@&quot;,courseType];</span><br><span class="line">    &#125; reverseBlock:^(NSString *courseType) &#123;</span><br><span class="line">        return [NSNumber numberWithLong:courseType.longLongValue];</span><br><span class="line">    &#125;];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -472,7 +472,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#关于mantle的使用"><span class="nav-number">1.</span> <span class="nav-text">关于mantle的使用</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#关于mantle的使用"><span class="nav-number">1.</span> <span class="nav-text">关于mantle的使用</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#数组transformer"><span class="nav-number">1.1.</span> <span class="nav-text">数组transformer</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#字典transformer"><span class="nav-number">1.2.</span> <span class="nav-text">字典transformer</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#对象成员转换"><span class="nav-number">1.3.</span> <span class="nav-text">对象成员转换</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#nsnumber转nsstring"><span class="nav-number">1.4.</span> <span class="nav-text">nsnumber转nsstring</span></a></li></ol></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">
