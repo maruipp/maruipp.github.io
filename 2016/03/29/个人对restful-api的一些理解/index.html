@@ -41,7 +41,7 @@
 <link href="/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="mantle," />
+  <meta name="keywords" content="php,restful," />
 
 
 
@@ -57,19 +57,25 @@
 
 
 
-<meta name="description" content="关于mantle的使用mantle使用注意事项
-数组transformer123+ (NSValueTransformer *)available_couponsJSONTransformer &amp;#123;    return [NSValueTransformer mtl_JSONArrayTransformerWithModelClass:MCIpadVerifyCoupon.class];&amp;">
+<meta name="description" content="最近帮朋友做一个应用的api，采用restful api作为规范。
+restful api的一些核心概念restful api提倡把所有组件都视为资源，因此url中只应该是名词，不应出现动词。用get，post，put，patch，delete等动词对资源进行操作。如对于一个资源user，可以分别用上述动词对其进行增删改查操作。
+那么，对于无法明显对应到增删改查范围内的操作如何处理呢？
+对于log">
 <meta property="og:type" content="article">
-<meta property="og:title" content="mantle的使用备忘">
-<meta property="og:url" content="http://yoursite.com/2016/03/21/mantle的使用/index.html">
+<meta property="og:title" content="个人对restful api的一些理解">
+<meta property="og:url" content="http://yoursite.com/2016/03/29/个人对restful-api的一些理解/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="关于mantle的使用mantle使用注意事项
-数组transformer123+ (NSValueTransformer *)available_couponsJSONTransformer &amp;#123;    return [NSValueTransformer mtl_JSONArrayTransformerWithModelClass:MCIpadVerifyCoupon.class];&amp;">
-<meta property="og:updated_time" content="2016-03-21T09:53:47.000Z">
+<meta property="og:description" content="最近帮朋友做一个应用的api，采用restful api作为规范。
+restful api的一些核心概念restful api提倡把所有组件都视为资源，因此url中只应该是名词，不应出现动词。用get，post，put，patch，delete等动词对资源进行操作。如对于一个资源user，可以分别用上述动词对其进行增删改查操作。
+那么，对于无法明显对应到增删改查范围内的操作如何处理呢？
+对于log">
+<meta property="og:updated_time" content="2016-03-29T06:25:44.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="mantle的使用备忘">
-<meta name="twitter:description" content="关于mantle的使用mantle使用注意事项
-数组transformer123+ (NSValueTransformer *)available_couponsJSONTransformer &amp;#123;    return [NSValueTransformer mtl_JSONArrayTransformerWithModelClass:MCIpadVerifyCoupon.class];&amp;">
+<meta name="twitter:title" content="个人对restful api的一些理解">
+<meta name="twitter:description" content="最近帮朋友做一个应用的api，采用restful api作为规范。
+restful api的一些核心概念restful api提倡把所有组件都视为资源，因此url中只应该是名词，不应出现动词。用get，post，put，patch，delete等动词对资源进行操作。如对于一个资源user，可以分别用上述动词对其进行增删改查操作。
+那么，对于无法明显对应到增删改查范围内的操作如何处理呢？
+对于log">
 
 
 
@@ -87,7 +93,7 @@
   };
 </script>
 
-  <title> mantle的使用备忘 | Hexo </title>
+  <title> 个人对restful api的一些理解 | Hexo </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -225,7 +231,7 @@
             
             
               
-                mantle的使用备忘
+                个人对restful api的一些理解
               
             
           </h1>
@@ -237,8 +243,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-03-21T17:50:04+08:00" content="2016-03-21">
-              2016-03-21
+            <time itemprop="dateCreated" datetime="2016-03-29T14:23:06+08:00" content="2016-03-29">
+              2016-03-29
             </time>
           </span>
 
@@ -251,8 +257,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/iOS/" itemprop="url" rel="index">
-                    <span itemprop="name">iOS</span>
+                  <a href="/categories/other/" itemprop="url" rel="index">
+                    <span itemprop="name">other</span>
                   </a>
                 </span>
 
@@ -267,8 +273,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/03/21/mantle的使用/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/03/21/mantle的使用/" itemprop="commentsCount"></span>
+                <a href="/2016/03/29/个人对restful-api的一些理解/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/03/29/个人对restful-api的一些理解/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -290,11 +296,16 @@
       
 
       
-        <h1 id="关于mantle的使用"><a href="#关于mantle的使用" class="headerlink" title="关于mantle的使用"></a>关于mantle的使用</h1><p>mantle使用注意事项</p>
-<h2 id="数组transformer"><a href="#数组transformer" class="headerlink" title="数组transformer"></a>数组transformer</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">+ (NSValueTransformer *)available_couponsJSONTransformer &#123;</span><br><span class="line">    return [NSValueTransformer mtl_JSONArrayTransformerWithModelClass:MCIpadVerifyCoupon.class];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="字典transformer"><a href="#字典transformer" class="headerlink" title="字典transformer"></a>字典transformer</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">+ (NSValueTransformer *)related_couponJSONTransformer &#123;</span><br><span class="line">    return [NSValueTransformer mtl_JSONDictionaryTransformerWithModelClass:MCIpadVerifyCoupon.class];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="对象成员转换"><a href="#对象成员转换" class="headerlink" title="对象成员转换"></a>对象成员转换</h2><p>必须继承MTLModel，声明MTLJsonAdapter，实现MTLJsonAdapter协议</p>
-<h2 id="nsnumber转nsstring"><a href="#nsnumber转nsstring" class="headerlink" title="nsnumber转nsstring"></a>nsnumber转nsstring</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">+ (NSValueTransformer *)course_typeJSONTransformer &#123;</span><br><span class="line">    return [MTLValueTransformer reversibleTransformerWithForwardBlock:^(NSNumber *courseType) &#123;</span><br><span class="line">        return [NSString stringWithFormat:@&quot;%@&quot;,courseType];</span><br><span class="line">    &#125; reverseBlock:^(NSString *courseType) &#123;</span><br><span class="line">        return [NSNumber numberWithLong:courseType.longLongValue];</span><br><span class="line">    &#125;];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <p>最近帮朋友做一个应用的api，采用restful api作为规范。</p>
+<h2 id="restful-api的一些核心概念"><a href="#restful-api的一些核心概念" class="headerlink" title="restful api的一些核心概念"></a>restful api的一些核心概念</h2><p>restful api提倡把所有组件都视为资源，因此url中只应该是名词，不应出现动词。用get，post，put，patch，delete等动词对资源进行操作。如对于一个资源user，可以分别用上述动词对其进行增删改查操作。</p>
+<p>那么，对于无法明显对应到增删改查范围内的操作如何处理呢？</p>
+<h2 id="对于login的处理"><a href="#对于login的处理" class="headerlink" title="对于login的处理"></a>对于login的处理</h2><p>通常理解，login是user的操作。所以URI应该是这样的：/users/login。</p>
+<p>但是注意restful提倡uri中不应该出现动词，因为uri中的内容都是资源。</p>
+<p>那么login是对哪个资源进行操作的呢？又是进行增删改查中的哪个操作呢？</p>
+<p>一般登录接口中会返回access_token及用户信息。考虑到login不是新增用户;也不是删;不是改，因为没有改变什么内容;也不是仅仅是查，因为还新增了access_token。那么我们无法将login简单的对应到增删改查中的任意一个操作。</p>
+<p>从login所做的具体逻辑出发，login做了两个操作，一是验证用户是否合法，这属于业务逻辑，不做讨论；二是查用户信息，这属于查操作，操作的资源是User；三是增access_token，这又属于新增操作，操作的资源是token。那么login就对应了增删改查中的两个操作，两个资源。所以应该如何处理呢？</p>
+<p>个人衡量下认为，应该将login作为增操作进行处理，即采用post方式进行请求。同时在请求中返回User信息。</p>
+<p>既然这么处理，那么最合理的url应该是：/user/{userid}/token。但是考虑到实际情况中，/user/login是最易理解并被大家接受的，所以url我建议依然采用/user/login,同时动词依然采用post。</p>
 
       
     </div>
@@ -309,7 +320,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/mantle/" rel="tag">#mantle</a>
+            <a href="/tags/php/" rel="tag">#php</a>
+          
+            <a href="/tags/restful/" rel="tag">#restful</a>
           
         </div>
       
@@ -318,17 +331,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/03/17/安卓json解析库Gson的基本使用/" rel="next" title="安卓json解析库Gson的基本使用">
-                <i class="fa fa-chevron-left"></i> 安卓json解析库Gson的基本使用
+              <a href="/2016/03/21/mantle的使用/" rel="next" title="mantle的使用备忘">
+                <i class="fa fa-chevron-left"></i> mantle的使用备忘
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/03/29/个人对restful-api的一些理解/" rel="prev" title="个人对restful api的一些理解">
-                个人对restful api的一些理解 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -354,8 +363,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/03/21/mantle的使用/"
-           data-title="mantle的使用备忘" data-url="http://yoursite.com/2016/03/21/mantle的使用/">
+      <div class="ds-thread" data-thread-key="2016/03/29/个人对restful-api的一些理解/"
+           data-title="个人对restful api的一些理解" data-url="http://yoursite.com/2016/03/29/个人对restful-api的一些理解/">
       </div>
     
   </div>
@@ -476,7 +485,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#关于mantle的使用"><span class="nav-number">1.</span> <span class="nav-text">关于mantle的使用</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#数组transformer"><span class="nav-number">1.1.</span> <span class="nav-text">数组transformer</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#字典transformer"><span class="nav-number">1.2.</span> <span class="nav-text">字典transformer</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#对象成员转换"><span class="nav-number">1.3.</span> <span class="nav-text">对象成员转换</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#nsnumber转nsstring"><span class="nav-number">1.4.</span> <span class="nav-text">nsnumber转nsstring</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#restful-api的一些核心概念"><span class="nav-number">1.</span> <span class="nav-text">restful api的一些核心概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#对于login的处理"><span class="nav-number">2.</span> <span class="nav-text">对于login的处理</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">

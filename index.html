@@ -224,6 +224,130 @@
             
               
                 
+                <a class="post-title-link" href="/2016/03/29/个人对restful-api的一些理解/" itemprop="url">
+                  个人对restful api的一些理解
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-03-29T14:23:06+08:00" content="2016-03-29">
+              2016-03-29
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/other/" itemprop="url" rel="index">
+                    <span itemprop="name">other</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/03/29/个人对restful-api的一些理解/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/03/29/个人对restful-api的一些理解/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>最近帮朋友做一个应用的api，采用restful api作为规范。</p>
+<h2 id="restful-api的一些核心概念"><a href="#restful-api的一些核心概念" class="headerlink" title="restful api的一些核心概念"></a>restful api的一些核心概念</h2><p>restful api提倡把所有组件都视为资源，因此url中只应该是名词，不应出现动词。用get，post，put，patch，delete等动词对资源进行操作。如对于一个资源user，可以分别用上述动词对其进行增删改查操作。</p>
+<p>那么，对于无法明显对应到增删改查范围内的操作如何处理呢？</p>
+<h2 id="对于login的处理"><a href="#对于login的处理" class="headerlink" title="对于login的处理"></a>对于login的处理</h2><p>通常理解，login是user的操作。所以URI应该是这样的：/users/login。</p>
+<p>但是注意restful提倡uri中不应该出现动词，因为uri中的内容都是资源。</p>
+<p>那么login是对哪个资源进行操作的呢？又是进行增删改查中的哪个操作呢？</p>
+<p>一般登录接口中会返回access_token及用户信息。考虑到login不是新增用户;也不是删;不是改，因为没有改变什么内容;也不是仅仅是查，因为还新增了access_token。那么我们无法将login简单的对应到增删改查中的任意一个操作。</p>
+<p>从login所做的具体逻辑出发，login做了两个操作，一是验证用户是否合法，这属于业务逻辑，不做讨论；二是查用户信息，这属于查操作，操作的资源是User；三是增access_token，这又属于新增操作，操作的资源是token。那么login就对应了增删改查中的两个操作，两个资源。所以应该如何处理呢？</p>
+<p>个人衡量下认为，应该将login作为增操作进行处理，即采用post方式进行请求。同时在请求中返回User信息。</p>
+<p>既然这么处理，那么最合理的url应该是：/user/{userid}/token。但是考虑到实际情况中，/user/login是最易理解并被大家接受的，所以url我建议依然采用/user/login,同时动词依然采用post。</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/03/21/mantle的使用/" itemprop="url">
                   mantle的使用备忘
                 </a>
@@ -1247,7 +1371,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">9</span>
+              <span class="site-state-item-count">10</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -1255,7 +1379,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-count">4</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -1264,7 +1388,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-count">6</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
